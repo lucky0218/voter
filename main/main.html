@@ -1,0 +1,112 @@
+<script>
+    var count=0,cnt=0;
+
+    function checkCount(boolOK, coun) {
+       if (boolOK == true) 
+       return count++;
+    }
+	
+	
+	function deal(){
+	var maxx=-1,ans=0;
+	parseInt(maxx); parseInt(ans);
+	for (var i=1;i<=cnt;i++)
+	{
+	var a; a=i*2-1;
+	var tot="candidate["+a+"]";
+	var k=document.getElementById(tot).value;
+	parseInt(k); 
+    if (parseInt(k)>maxx){maxx=k; ans=i;}
+	}
+	var pos=document.getElementById("result");
+	var dest="cname["+ans+"]";
+	if (document.getElementById(dest).value=="") pos.value="Anonymous Wins!"
+	else pos.value=document.getElementById(dest).value+" Wins!";
+   // alert("该功能暂未开放");
+	}
+
+    function AddInput() {
+    countAA = checkCount(true, count);
+       var question = document.getElementById("question");
+	   //以下输入候选人姓名
+	    var input = document.createElement("input");
+		cnt++;
+        input.type = "text";
+        input.id = "cname[" + cnt + "]";
+        input.name = "candidate[" + cnt + "].name";
+        question.appendChild(input);
+		
+		//以下为计票区域
+        var input = document.createElement("input");
+        input.type = "text";
+		input.value="0";
+        input.id = "candidate[" + count + "]";
+        input.name = "candidate[" + count + "].name";
+		input.disabled="true";
+        question.appendChild(input);                                     
+        //以上为普通文本框
+        count++;
+		//以下 为”顶“按钮
+        var input = document.createElement("input");
+        input.type = "button";
+        input.id = "candidate[" + count + "]";
+        input.name = "candidate[" + count + "].name";
+        input.value="顶";
+		input.onclick=function() 
+		{
+		var p=document.getElementById(this.id);
+		var msg=this.id,k;
+		var ar=msg.split("["); k=ar[1];
+		ar=k.split("]"); k=ar[0]-1;
+		var pos=document.getElementById("candidate["+k+"]");
+		var q=pos.value;
+		parseInt(q);
+		q++;
+		String(q);
+		pos.value=q;
+		};
+		question.appendChild(input);
+		
+		
+		//以下为踩按钮
+		var input = document.createElement("input");
+        input.type = "button";
+        input.id = "candidate[" + count + "]";
+        input.name = "candidate[" + count + "].name";
+        input.value="踩";
+		input.onclick=function() 
+		{
+		var p=document.getElementById(this.id);
+		var msg=this.id,k;
+		var ar=msg.split("["); k=ar[1];
+		ar=k.split("]"); k=ar[0]-1;
+		var pos=document.getElementById("candidate["+k+"]");
+		var q=pos.value;
+		parseInt(q);
+		if (q>0) q--;
+		String(q);
+		pos.value=q;
+		};
+		question.appendChild(input);
+		
+        var br = document.createElement("br");
+        question.appendChild(br);
+    }
+</script>
+
+
+
+<body>
+<div>
+<h1> 欢迎使用投票器程序！ </h1>
+</div>
+<div style="width: 500px; margin-left: 200px;">
+    <div id="question" style="border: 1px solid blue;">
+		<input id="btnAddInput" type="button" value="新增候选人" onclick="AddInput()" />
+		<input type="button" id="deal" value="结果" onclick="deal()"/>  <br />
+    </div>
+</div>
+<div>
+    <input id="result" type="text" disabled="true"/>
+</div>
+</body>
