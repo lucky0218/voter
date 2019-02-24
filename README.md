@@ -1,0 +1,2 @@
+# voter
+a primitive voter
