@@ -1,11 +1,11 @@
 <script>
     var count=0,cnt=0;
-
     function checkCount(boolOK, coun) {
        if (boolOK == true) 
        return count++;
     }
-	
+	function aaa(xx,yy){
+	}
 	
 	function deal(){
 	var maxx=-1,ans=0;
@@ -20,11 +20,10 @@
 	}
 	var pos=document.getElementById("result");
 	var dest="cname["+ans+"]";
-	if (document.getElementById(dest).value=="") pos.value="Anonymous Wins!"
-	else pos.value=document.getElementById(dest).value+" Wins!";
+	if (document.getElementById(dest).value=="") pos.value="？！？"
+	else pos.value=document.getElementById(dest).value+" 领先！";
    // alert("该功能暂未开放");
 	}
-
     function AddInput() {
     countAA = checkCount(true, count);
        var question = document.getElementById("question");
@@ -51,7 +50,7 @@
         input.type = "button";
         input.id = "candidate[" + count + "]";
         input.name = "candidate[" + count + "].name";
-        input.value="顶";
+        input.value="资瓷";
 		input.onclick=function() 
 		{
 		var p=document.getElementById(this.id);
@@ -73,7 +72,7 @@
         input.type = "button";
         input.id = "candidate[" + count + "]";
         input.name = "candidate[" + count + "].name";
-        input.value="踩";
+        input.value="不资瓷";
 		input.onclick=function() 
 		{
 		var p=document.getElementById(this.id);
@@ -93,19 +92,25 @@
         question.appendChild(br);
     }
 </script>
-
-
+<meta charset='UTF-8'>
+<head>
+	<title>投票器</title>
+	<link href="main_decoration.css" type="text/css" rel="stylesheet" >
+</head>
 <body>
-<div style="width: 320px; margin-left:605px;border: 1px solid yellow">
-<h1> 欢迎使用投票器程序！ </h1>
+<div style="text-align: center;">
+<h1> 欢迎使用投票器！ </h1>
 </div>
-<div style="width: 500px; margin-left: 200px;">
-    <div id="question" style="border: 1px solid blue;">
-		<input id="btnAddInput" type="button" value="新增候选人" onclick="AddInput()" />
-		<input type="button" id="deal" value="结果" onclick="deal()"/>  <br />
+<div style="text-align: center; background-color: pink; border: 10px solid pink;">
+    <h2>钦定的人是: </h2>
+    <input style="width: 350px; height: 50px; text-align: center; color: green; background-color: crimson; border: 5px solid orange;" id="result" type="text" disabled="true"/>
+</div>
+<div style="text-align: center; background-color: lightgreen; border: 10px solid lightgreen;">
+	<h2>在此开展投票的过程</h2>
+	<p>袁天骏AKIOI！我们建议您最好不要输入超过30个字母！</p>
+    <div id="question">
+		<input style="height: 30px;" id="btnAddInput" type="button" value="增加一个新的候选人" onclick="AddInput()" />
+		<input style="width: 250px; height: 30px; color: white; background-color: green; border: 5px solid orange;";" type="button" id="deal" value="显示现在中央钦定的人" onclick="deal()"/>  <br />
     </div>
-</div>
-<div>
-    <input id="result" type="text" disabled="true"/>
 </div>
 </body>
