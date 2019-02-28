@@ -6,7 +6,35 @@
     }
 	function aaa(xx,yy){
 	}
-	
+	function download(filename, text) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        pom.dispatchEvent(event);
+    } else {
+        pom.click();
+    }
+	}
+	function printt()
+	{
+		var teext="";
+		for (var i=1;i<=cnt;i++)
+		{
+			var a; a=i*2-1;
+			var tot="cname["+i+"]";
+			var k=document.getElementById(tot).value;
+			teext=teext+k;
+			teext=teext+" ";
+			tot="candidate["+a+"]";
+			k=document.getElementById(tot).value;
+			teext=teext+k;
+			teext=teext+"\r\n";
+		}
+		download("result.txt",teext);
+	}
 	function deal(){
 	var maxx=-1,ans=0;
 	parseInt(maxx); parseInt(ans);
@@ -112,5 +140,6 @@
 		<input style="height: 30px;" id="btnAddInput" type="button" value="增加一个新的候选人" onclick="AddInput()" />
 		<input style="width: 250px; height: 30px; color: white; background-color: green; border: 5px solid orange;";" type="button" id="deal" value="显示现在中央钦定的人" onclick="deal()"/>  <br />
     </div>
+    <input style="height: 30px;" id="btnAddInput" type="button" value="下载结果txt" onclick="printt()" />
 </div>
 </body>
