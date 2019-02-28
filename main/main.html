@@ -20,16 +20,28 @@
 	}
 	function printt()
 	{
-		var teext="";
+		var arr= new Array();
 		for (var i=1;i<=cnt;i++)
 		{
+			var now=new Object();
 			var a; a=i*2-1;
 			var tot="cname["+i+"]";
 			var k=document.getElementById(tot).value;
-			teext=teext+k;
-			teext=teext+" ";
+			now.cname=k;
 			tot="candidate["+a+"]";
 			k=document.getElementById(tot).value;
+			k=parseInt(k);
+			now.num=k;
+			arr[i-1]=now;
+		}
+		arr=arr.sort(function(a,b){return (b.num-a.num);});
+		var teext="名字 票数\r\n";
+		for (var i=1;i<=cnt;i++)
+		{
+			var k=arr[i-1].cname;
+			teext=teext+k;
+			teext=teext+" ";
+			k=arr[i-1].num;
 			teext=teext+k;
 			teext=teext+"\r\n";
 		}
