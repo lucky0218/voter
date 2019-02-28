@@ -1,3 +1,10 @@
+<meta charset='UTF-8'>
+<head>
+	<title>投票器</title>
+	<link href="main_decoration.css" type="text/css" rel="stylesheet" >
+	<link href="main_input.css" type="text/css" rel="stylesheet" >
+</head>
+
 <script>
     var count=0,cnt=0;
     function checkCount(boolOK, coun) {
@@ -73,6 +80,7 @@
         input.type = "text";
         input.id = "cname[" + cnt + "]";
         input.name = "candidate[" + cnt + "].name";
+		input.className="big";
         question.appendChild(input);
 		
 		//以下为计票区域
@@ -81,6 +89,7 @@
 		input.value="0";
         input.id = "candidate[" + count + "]";
         input.name = "candidate[" + count + "].name";
+		input.className="s1";
 		input.disabled="true";
         question.appendChild(input);                                     
         //以上为普通文本框
@@ -90,6 +99,7 @@
         input.type = "button";
         input.id = "candidate[" + count + "]";
         input.name = "candidate[" + count + "].name";
+		input.className="s2";
         input.value="资瓷";
 		input.onclick=function() 
 		{
@@ -113,6 +123,7 @@
         input.id = "candidate[" + count + "]";
         input.name = "candidate[" + count + "].name";
         input.value="不资瓷";
+		input.className="s3";
 		input.onclick=function() 
 		{
 		var p=document.getElementById(this.id);
@@ -132,11 +143,7 @@
         question.appendChild(br);
     }
 </script>
-<meta charset='UTF-8'>
-<head>
-	<title>投票器</title>
-	<link href="main_decoration.css" type="text/css" rel="stylesheet" >
-</head>
+
 <body>
 <div style="text-align: center;">
 <h1> 欢迎使用投票器！ </h1>
@@ -147,10 +154,9 @@
 </div>
 <div style="text-align: center; background-color: lightgreen; border: 10px solid lightgreen;">
 	<h2>在此开展投票的过程</h2>
-	<p>袁天骏AKIOI！我们建议您最好不要输入超过30个字母！</p>
     <div id="question">
-		<input style="height: 30px;" id="btnAddInput" type="button" value="增加一个新的候选人" onclick="AddInput()" />
-		<input style="width: 250px; height: 30px; color: white; background-color: green; border: 5px solid orange;";" type="button" id="deal" value="显示现在中央钦定的人" onclick="deal()"/>  <br />
+		<input style="width: 200px; height: 40px; color: white; background-color: green; border: 5px solid orange;" id="btnAddInput" type="button" value="增加新的候选人" onclick="AddInput()" />
+		<input style="width: 200px; height: 40px; color: white; background-color: green; border: 5px solid orange;" type="button" id="deal" value="显示当前优胜者" onclick="deal()"/>  <br />
     </div>
     <input style="height: 30px;" id="btnAddInput" type="button" value="下载结果txt" onclick="printt()" />
 </div>
