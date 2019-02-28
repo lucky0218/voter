@@ -11,8 +11,13 @@
        if (boolOK == true) 
        return count++;
     }
-	function aaa(xx,yy){
+
+	function RunOnBeforeUnload() {
+	window.onbeforeunload = function(){ return "";} 
 	}
+	
+
+
 	function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -144,10 +149,14 @@
     }
 </script>
 
+
+<body onload="RunOnBeforeUnload()";/>
 <body>
 <div style="text-align: center;">
 <h1> 欢迎使用投票器！ </h1>
 </div>
+
+
 <div style="text-align: center; background-color: pink; border: 10px solid pink;">
     <h2>钦定的人是: </h2>
     <input style="width: 350px; height: 50px; text-align: center; color: green; background-color: crimson; border: 5px solid orange;" id="result" type="text" disabled="true"/>
