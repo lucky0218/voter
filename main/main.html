@@ -12,12 +12,13 @@
        return count++;
     }
 
+	//以下为刷新提示
 	function RunOnBeforeUnload() {
 	window.onbeforeunload = function(){ return "";} 
 	}
 	
 
-
+    //以下为结果下载
 	function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -59,6 +60,8 @@
 		}
 		download("result.txt",teext);
 	}
+	
+	//以下为比较第一名
 	function deal(){
 	var maxx=-1,ans=0;
 	parseInt(maxx); parseInt(ans);
@@ -168,5 +171,6 @@
 		<input style="width: 200px; height: 40px; color: white; background-color: green; border: 5px solid orange;" type="button" id="deal" value="显示当前优胜者" onclick="deal()"/>  <br />
     </div>
     <input style="height: 30px;" id="btnAddInput" type="button" value="下载结果txt" onclick="printt()" />
-</div>
+	</div>
+<a id="al" href="./instruction/introduction.html"> 关于我们 </a>
 </body>
