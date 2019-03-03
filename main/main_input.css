@@ -3,9 +3,16 @@ div>div>input{
 	font-size:16px;
 }
 
+#download{
+	margin-top:10px;
+}
 #result{
 	font-weight:bold;
 	font-size:24px;
+}
+input#aim{
+	border:2px solid violet;
+	margin-left:8px;
 }
 .big{
 	height:28px;
@@ -35,4 +42,8 @@ div>div>input{
 	height:35px;
 	margin:2px 1px 2px 1px;
 	font-size:16px;
+}
+p>input{
+	font-size:24px;
+	height:30px;
 }

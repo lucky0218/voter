@@ -155,22 +155,23 @@
 
 <body onload="RunOnBeforeUnload()";/>
 <body>
+
 <div style="text-align: center;">
-<h1> 欢迎使用投票器！ </h1>
+<h1 id="h11"> 欢迎使用投票器！ </h1>
 </div>
 
-
 <div style="text-align: center; background-color: pink; border: 10px solid pink;">
-    <h2>钦定的人是: </h2>
+    <h2 id="h21">钦定的人是: </h2>
     <input style="width: 350px; height: 50px; text-align: center; color: green; background-color: crimson; border: 5px solid orange;" id="result" type="text" disabled="true"/>
 </div>
 <div style="text-align: center; background-color: lightgreen; border: 10px solid lightgreen;">
-	<h2>在此开展投票的过程</h2>
+    <p id="aim">投选的职位是<input type="text" id="aim"/></p>
     <div id="question">
 		<input style="width: 200px; height: 40px; color: white; background-color: green; border: 5px solid orange;" id="btnAddInput" type="button" value="增加新的候选人" onclick="AddInput()" />
 		<input style="width: 200px; height: 40px; color: white; background-color: green; border: 5px solid orange;" type="button" id="deal" value="显示当前优胜者" onclick="deal()"/>  <br />
     </div>
-    <input style="height: 30px;" id="btnAddInput" type="button" value="下载结果txt" onclick="printt()" />
-	</div>
-<a id="al" href="./instruction/introduction.html"> 关于我们 </a>
+    <input style="height: 30px;" id="download" type="button" value="下载结果txt" onclick="printt()" />
+</div>
+<img src="../img/logo.png" id="logo" />
+<a id="a1" href="./instruction/introduction.html"> 关于我们 </a>
 </body>
